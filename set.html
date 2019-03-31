@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>세뜨!</title>
+<script type="text/javascript">
+//값을 set(설정)해서 넣을 수 있다. 
+let names = new Set();
+
+names.add("지윤").add("한나").add("관동").add("창연").add("영승");
+//Unique Value를 넣기 때문에 중복 값이 들어가면 하나만 보여준다. 중복값 처리! 
+names.delete("창연");//delete method! 배열값을 삭제한다 체인은 불가능하다
+//names.clear();//모든 값을 지울 수 있다 텅 비워진다 
+console.log(names.size);//넣은 배열값의 크기를 보여준다 
+console.log(names.has("관동"));//해당 값이 있는지 비교하고 boolean값 리턴한다 
+//메소드 체인으로 객체 변수에 값을 계속 넣을 수 있다 .
+console.log(names); 
+
+let ninjas=["지윤","관동","영승","인승","인성","인승"];
+
+let refinedNinjas= new Set(ninjas);//중복값 처리해서 반환해준다 
+console.log(refinedNinjas);
+
+ninjas =[...refinedNinjas];
+console.log(ninjas);
+</script>
+</head>
+<body>
+
+</body>
+</html>
