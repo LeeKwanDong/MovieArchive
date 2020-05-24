@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>영화등록</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/static/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/static/css/smoothproducts.css">
+	<script
+  	src="https://code.jquery.com/jquery-3.4.1.js"
+  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  	crossorigin="anonymous">
+	</script>	
+	<script>
+	$("#btnsubmit").on("click",function(){
+		$("#insertfrm").submit()
+	})
+	</script>
+</head>
+<body>
+    {% include 'Navbar.html' %}
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">영화 리뷰 등록</h2>
+                    <p>영화정보를 모두 기입해주세요</p>
+                </div>
+                <form id="insertfrm" action="/reviewinsertok/" method="post">{% csrf_token %}
+                    <input name = "review_idx" type="hidden"  value="{{idx}}">
+                    <div class="form-group"><label>영화 줄거리</label><textarea name="description" placeholder = "영화 기본 묘사" class="form-control"></textarea></div>
+                    <div class="form-group"><label>폭력/신체손상/유혈</label><textarea name="violence" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                    <div class="form-group"><label>가학적인 요소</label><textarea name="torture" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                   	<div class="form-group"><label>아동/여성/노인/동물 등 약자에 대한 폭력/학대</label><textarea name="weak" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>                   	                   	
+                   	<div class="form-group"><label>노출/성애묘사</label><textarea name="exposure" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                   	<div class="form-group"><label>욕설/언어</label><textarea name="profanity" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                   	<div class="form-group"><label>차별적 표현/비하</label><textarea name="discrimination" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>    
+                   	<div class="form-group"><label>충격을 주는 묘사/효과</label><textarea name="shocking" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                    <div class="form-group"><label>음주/약물/흡연</label><textarea name="drug" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>
+                    <div class="form-group"><label>공포/긴장/초자연적인 현상</label><textarea name="fear" placeholder="최대한 자세히 묘사해주세요" class="form-control"></textarea></div>                
+                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit" id="btnsubmit">등록</button></div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/static/js/smoothproducts.min.js"></script>
+    <script src="/static/js/theme.js"></script>
+</body>
+
+</html>
