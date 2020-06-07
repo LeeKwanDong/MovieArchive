@@ -33,3 +33,11 @@ class Movies(models.Model):
         ordering = ("-idx",)
         managed = False
         db_table = 'movies'
+
+class Admin(models.Model):
+    id = models.CharField(primary_key=True, max_length=20)
+    pwd = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'admin'

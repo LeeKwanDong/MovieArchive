@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from ArchiveApp.models import Movies, MovieReview
+from ArchiveApp.models import Movies, MovieReview, Admin
 from django.http.response import HttpResponseRedirect
 from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def Main(request):
     datas = Movies.objects.all()
     return render(request, "Main.html", {"recentones" : datas})
-
 
 def Review(request):   
     if request.method == "GET":
@@ -17,9 +16,21 @@ def Review(request):
 def Request(request):   
     return render(request, "Request.html")
 
+def Register(request):   
+    return render(request, "Register.html")
+
+def RegisterOK(request):
+    if request.method =="POST":
+        Admin(
+            id = request.POST.get("id"),
+            pwd = request.POST.get("pwd")
+        ).save() 
+    return HttpResponseRedirect("/")
+def Login(request):   
+    return render(request, "Login.html")
+
 def MoviesInsert(request): 
     return render(request, "moviesinsert.html")  
-
 
 def MoviesInsertOK(request):
     if request.method == "POST":
@@ -68,7 +79,6 @@ def ReviewInsertOK(request):
         ).save()    
     return HttpResponseRedirect("/")
 
-
 def MoviesUpdate(request):
     updatemovie = Movies.objects.get(idx=request.GET.get("review_idx"))
     return render(request, "movieupdate.html", {"updatemovie" : updatemovie})
@@ -109,7 +119,6 @@ def ReviewUpdateOK(request):
         updatereview.discrimination = request.POST.get("discrimination")
         updatereview.save()
     return HttpResponseRedirect("/")
-
 
 def Delete(request):
     deletereview = MovieReview.objects.get(review_idx=request.GET.get("review_idx"))
