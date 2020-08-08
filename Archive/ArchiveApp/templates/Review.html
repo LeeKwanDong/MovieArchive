@@ -13,17 +13,19 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
 <link rel="stylesheet" href="/static/css/smoothproducts.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous">
-	
-</script>
+
 <script>
-	$("#btnupdate").on("click", function() {
-		$("#updatefrm").submit()
+	const btnupdate = document.querySelector("#btnupdate")
+	const btndelete = document.querySelector("#btndelete")
+	const updatefrm = document.querySelector("#updatefrm")
+	const deletefrm = document.querySelector("#deletefrm")
+	
+	btnupdate.addEventListener("click", (e)=>{
+        updatefrm.submit()
 	})
-	$("#btndelete").on("click", function() {
-		$("#deletefrm").submit()
+
+	btndelete.addEventListener("click", (e)=>{
+        deletefrm.submit()
 	})
 </script>
 </head>

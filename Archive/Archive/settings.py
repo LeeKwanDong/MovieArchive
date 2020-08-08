@@ -128,8 +128,8 @@ STATIC_URL = '/static/'
 MEDIA_URL ="/media/" 
 
 STATICFILE_DIRS =(
-    os.path.join(BASE_DIR, "static"),
-    
+    os.path.join(BASE_DIR, "static"),    
 )
+
 MEDIA_ROOT = os.path.join(BASE_DIR,"ArchiveApp/static/img/posters")
             

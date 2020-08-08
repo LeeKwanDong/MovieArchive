@@ -16,9 +16,11 @@
   	crossorigin="anonymous">
 	</script>	
 	<script>
-	$("#btnsubmit").on("click",function(){
-		$("#insertfrm").submit()
-	})
+        const btnsubmit = document.querySelector("#btnsubmit")
+        const intsertfrm = document.querySelector("#insertfrm")
+        btnsubmit.addEventListener("click", (e)=>{
+            insertfrm.submit()
+        })
 	</script>
 </head>
 <body>

@@ -20,12 +20,17 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    #Main
     path('', views.Main),
     path("review/", views.Review),
     path("request/", views.Request), 
+    
+    #Register
     path("register/", views.Register), 
     path("registerok/", views.RegisterOK),
     path("login/", views.Login), 
+
+    #CRUD
     path("moviesinsert/", views.MoviesInsert), 
     path("moviesinsertok/", views.MoviesInsertOK),
     path("moviesupdate/", views.MoviesUpdate), 

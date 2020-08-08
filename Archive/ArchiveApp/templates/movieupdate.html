@@ -10,15 +10,12 @@
     <link rel="stylesheet" href="/static/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="/static/css/smoothproducts.css">
-	<script
-  	src="https://code.jquery.com/jquery-3.4.1.js"
-  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  	crossorigin="anonymous">
-	</script>	
 	<script>
-	$("#btnsubmit").on("click",function(){
-		$("#updatefrm").submit()
-	})
+        const btnsubmit = document.querySelector("#btnsubmit")
+        const updatefrm = document.querySelector("#updatefrm")
+        btnsubmit.addEventListener("click", (e)=>{
+            updatefrm.submit()
+        })
 	</script>
 </head>
 <body>

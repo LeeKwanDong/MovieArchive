@@ -2,7 +2,8 @@ from django.shortcuts import render
 from ArchiveApp.models import Movies, MovieReview, Admin
 from django.http.response import HttpResponseRedirect
 from django.core.files.storage import FileSystemStorage
-# Create your views here.
+
+# Main Screetn
 def Main(request):
     datas = Movies.objects.all()
     return render(request, "Main.html", {"recentones" : datas})
@@ -13,6 +14,7 @@ def Review(request):
         movie_title = Movies.objects.get(idx=request.GET.get("idx"))
     return render(request, "Review.html", {"review_info" : review_info, "movie_title" : movie_title})
 
+# Login & Regiseter & QNA
 def Request(request):   
     return render(request, "Request.html")
 
@@ -29,6 +31,8 @@ def RegisterOK(request):
 def Login(request):   
     return render(request, "Login.html")
 
+
+#CRUD Operations
 def MoviesInsert(request): 
     return render(request, "moviesinsert.html")  
 
