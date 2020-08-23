@@ -38,25 +38,25 @@ def MoviesInsert(request):
 
 def MoviesInsertOK(request):
     if request.method == "POST":
-        if("img" in request.FILES):
-            upload_img = request.FILES["img"]
-            fs = FileSystemStorage()
-            fs.save(upload_img.name, upload_img)
-            Movies(
+        if ("img" in request.FILES):
+           upload_img = request.FILES["img"]
+           fs = FileSystemStorage()
+           fs.save(upload_img.name, upload_img)
+           Movies(
                 idx = Movies.objects.order_by("idx").last().idx + 1,
                 title=request.POST.get("title"),
                 date=request.POST.get("date"),
                 genre=request.POST.get("genre"),
                 rate=request.POST.get("rate"),
                 img = upload_img.name
-            ).save()
+            ).save()      
         else:
             Movies(
                 idx = Movies.objects.order_by("idx").last().idx + 1,
                 title=request.POST.get("title"),
                 date=request.POST.get("date"),
                 genre=request.POST.get("genre"),
-                rate=request.POST.get("rate"),
+                rate=request.POST.get("rate"), 
             ).save()
     idx = Movies.objects.order_by("idx").last().idx
     return render(request, "reviewinsert.html", {"idx": idx})
@@ -89,12 +89,22 @@ def MoviesUpdate(request):
     
 def MoviesUpdateOK(request):
     if request.method == "POST":
+        if("img" in request.FILES):
             index = request.POST.get("idx")
             upload_img = request.FILES["img"]
             fs = FileSystemStorage()
             fs.save(upload_img.name, upload_img)
-            updatemovie.img = upload_img.name,
             updatemovie = Movies.objects.get(idx=request.POST.get("idx"))
+            updatemovie.img = upload_img.name
+            updatemovie.title = request.POST.get("title")
+            updatemovie.date = request.POST.get("date")
+            updatemovie.genre = request.POST.get("genre")
+            updatemovie.rate = request.POST.get("rate")
+            updatemovie.save()
+        else:
+            index = request.POST.get("idx")
+            updatemovie = Movies.objects.get(idx=request.POST.get("idx"))
+            updatemovie.img
             updatemovie.title = request.POST.get("title")
             updatemovie.date = request.POST.get("date")
             updatemovie.genre = request.POST.get("genre")
